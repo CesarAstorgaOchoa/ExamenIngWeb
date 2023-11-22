@@ -26,3 +26,5 @@ Route::post('/insertar',[ordenController::class,'insertarOrden']);
 Route::get('/detalle',[ordenController::class, 'obtenerDetalle']);
 
 Route::put('/editar',[ordenController::class,'editarOrden']);
+
+Route::delete('/eliminar',[ordenController::class,'eliminarOrden']);

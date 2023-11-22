@@ -47,4 +47,16 @@ class ordenController extends Controller
 
         return $bandera;
     }
+
+    public function eliminarOrden(Request $request){
+        $idOrden = $request->idOrden;
+        $bandera = 'Fallido';
+        $respuesta = $this->bdOrdenes->eliminarOrden($idOrden);
+        
+        if($respuesta == true)
+           $bandera = 'Completado';
+
+        
+        return $bandera;
+    }
 }

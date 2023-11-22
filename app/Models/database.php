@@ -110,6 +110,12 @@ class database
         
     }
 
+    public function eliminarOrden(int $idOrden){
+        $resultados = DB::select('delete from orden where idOrden = ?',[$idOrden]);
+
+        return $resultados;
+    }
+
 
     
 }
