@@ -87,7 +87,28 @@ class database
         return $Norden;
     }
 
-    
+    public function editarOrden(Request $request){
+        $ObjOrden = new orden(
+            $request->idOrden,
+            $request->nombreOrden,
+            $request->correoOrden,
+            $request->telOrden,
+            $request->direccionOrden,
+            $request->creacionOrden
+        );
+
+        $idOrden = $ObjOrden->getIdOrden();
+        $nombreOrden = $ObjOrden->getNombreOrden();
+        $correoOrden = $ObjOrden->getCorreoOrden();
+        $telOrden = $ObjOrden->getTelOrden();
+        $direccionOrden = $ObjOrden->getDireccionOrden();
+        $creacionOrden = $ObjOrden->getCreacionOrden();
+
+        $respuesta = DB::insert('update orden set nombreOrden = ?, correoOrden = ?, telOrden = ?, direccionOrden = ?, creacionOrden = ? where idOrden = ?',[$nombreOrden,$correoOrden,$telOrden,$direccionOrden,$creacionOrden,$idOrden]);
+
+        return $respuesta;
+        
+    }
 
 
     

@@ -37,4 +37,14 @@ class ordenController extends Controller
         
         return $orden;
     }
+
+    public function editarOrden(Request $request){
+        $bandera = 'Fallido';
+        $respuesta = $this->bdOrdenes->editarOrden($request);
+        
+        if($respuesta == true)
+           $bandera = 'Completado';
+
+        return $bandera;
+    }
 }
