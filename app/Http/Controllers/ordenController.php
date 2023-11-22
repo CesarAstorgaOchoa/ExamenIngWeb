@@ -19,4 +19,14 @@ class ordenController extends Controller
         $ordenes = $this->bdOrdenes->obtenerOrdenes();
         return $ordenes;
     }
+
+    public function insertarOrden(Request $request){
+        $bandera = 'Fallido';
+        $respuesta = $this->bdOrdenes->insertarOrden($request);
+
+       if($respuesta == true)
+          $bandera = 'Completado';
+
+        return $bandera;
+    }
 }
