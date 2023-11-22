@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/obtener',[ordenController::class,'mostrarOrdenes']);
 Route::post('/insertar',[ordenController::class,'insertarOrden']);
+
+Route::get('/detalle',[ordenController::class, 'obtenerDetalle']);

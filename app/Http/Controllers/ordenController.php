@@ -29,4 +29,12 @@ class ordenController extends Controller
 
         return $bandera;
     }
+
+    public function obtenerDetalle(Request $request){
+        $idOrden = $request->idOrden;
+
+        $orden = $this->bdOrdenes->obtenerDetalleOrden($idOrden);
+        
+        return $orden;
+    }
 }

@@ -59,4 +59,36 @@ class database
 
         return $respuesta;
     }
+
+    public function obtenerDetalleOrden(int $idOrden){
+
+        $resultados = DB::select('select*from orden where idOrden = ?',[$idOrden]);
+
+        foreach ($resultados as $resultado){
+            $orden = new orden(
+                $resultado->idOrden,
+                $resultado->nombreOrden,
+                $resultado->correoOrden,
+                $resultado->telOrden,
+                $resultado->direccionOrden,
+                $resultado->creacionOrden
+            );
+        }
+
+        $Norden = [
+                'idOrden' => $orden->getIdOrden(),
+                'nombreOrden' => $orden->getNombreOrden(),
+                'correoOrden' => $orden->getCorreoOrden(),
+                'telOrden' => $orden->getTelOrden(),
+                'direccionOrden' => $orden->getDireccionOrden(),
+                'creacionOrden' => $orden->getCreacionOrden(),
+        ];
+
+        return $Norden;
+    }
+
+    
+
+
+    
 }
