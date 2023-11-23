@@ -50,13 +50,8 @@ class ordenController extends Controller
 
     public function eliminarOrden(Request $request){
         $idOrden = $request->idOrden;
-        $bandera = 'Fallido';
         $respuesta = $this->bdOrdenes->eliminarOrden($idOrden);
-        
-        if($respuesta == true)
-           $bandera = 'Completado';
 
-        
-        return $bandera;
+        return $respuesta;
     }
 }
